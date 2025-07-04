@@ -4,11 +4,25 @@
 }
 
 .container {
-    width: 100%;
+    width: 90%;
     max-width: 1700px;
     margin: auto;
 }
+label{
+    width: 40px;
+    background-color: rgb(119, 117, 29);
+    height: 40px;
+    display: block;
+    /* нужно,для того,чтобы абсолютные дети выравнивлись по родителю, а не по экрану */
+    position: relative;
+}
+label span{
+    position: absolute;
+    width: 60%;
+    background-color: rgb(255, 255, 255);
+    height: 2px;
 
+}
 body {
     background-color: #0c0b1e;
     font-family: "Roboto", sans-serif;
@@ -19,17 +33,45 @@ header .container {
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
+    
+
 }
 
 header a {
     font-size: 25px;
     color: gray;
+    line-height: 40px;
+    padding: 0 20px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.element-animation {
+    animation: spin 2s linear infinite;
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    border: 4px solid;
+    border-image: linear-gradient(to right, red, blue, green)1;
+    position: relative;
+    top: 250px;
 }
 
 header a:hover {
     background-color: white;
     transition: .6s;
     border-radius: 4px;
+    cursor: pointer;
 
 }
 
@@ -43,21 +85,41 @@ header a:hover {
     display: flex;
     gap: 20px;
 }
-.modal{
+
+.modal {
     position: fixed;
     background-color: #0c0b1e;
     width: 100%;
-    height: 100%;
-    top: 0;
+    height: calc(100% - 60px);
+    top: 60px;
+    left: 0;
+    display: none;
+    z-index: 10;
+}
+/* Добавить один общий  класс для modals */
+/* гамбургер для мобильной версии */
+/* кнопка помотреть исправить */
+.modal_about {
+    position: fixed;
+    background-color: #0c0b1e;
+    width: 100%;
+    height: 90%;
+    top: 60px;
     left: 0;
     display: none;
 }
-.modal_about{
+/* если селектор не работает, то дописать в начале строки его родителя */
+body .modal_show{
+    display: block;
+
+}
+
+.modal_contacts{
     position: fixed;
     background-color: #0c0b1e;
     width: 100%;
-    height: 100%;
-    top: 0;
+    height: 90%;
+    top: 60px;
     left: 0;
     display: none;
 }
@@ -86,7 +148,7 @@ header a:hover {
 .card:hover {
     position: relative;
     left: 10px;
-    transition: .16s;
+    transition: transform 096s;
     bottom: 10px;
     -webkit-box-shadow: 4px 4px 8px 0px rgba(255, 255, 255, 0.2);
     -moz-box-shadow: 4px 4px 8px 0px rgba(255, 255, 255, 0.2);
@@ -97,28 +159,69 @@ header a:hover {
     display: flex;
     justify-content: center;
 }
-.cards a{
+
+.cards a {
     color: black;
 }
+.watch{
+    padding: 30px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    text-decoration: none;
+    border-radius: 30px;
+    position: relative;
+    top: 200px;
+    left: 1400px;
+}
+.watch:hover{
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    transition: background 0.3s ease;
+}
+.about {
+    max-width: 500px;
+    padding: 10px;
+    color: black;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 20px;
+    display: block;
+    margin: auto;
+    margin-top: 200px;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(255, 255, 255, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(255, 255, 255, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.about:hover {
+    transform: scale(1.05);
+}
+
 @media (max-width: 600px) {
 
     .header-left {
         flex-direction: column;
-        align-items: center;
         /* Ссылки в столбик */
         gap: 10px;
 
         /* Уменьшаем отступ */
+    }
+    header .container{
+        flex-direction:column ;
     }
 
     .header-right {
         flex-direction: column;
-        align-items: center;
         /* Ссылки в столбик */
         gap: 10px;
         /* Уменьшаем отступ */
     }
-    .cards{
+    
+    .cards {
         flex-direction: column;
         align-items: center;
     }
