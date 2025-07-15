@@ -13,85 +13,159 @@
 </head>
 
 <body>
-    <label for="checkbox">
-        
-        <span></span>
-    </label>
-    <input type="checkbox" id="checkbox">
+    <!-- <div class="burger">
+        <input type="checkbox" id="hamburger-toggle" class="hamburger-checkbox">
+        <label for="hamburger-toggle" class="hamburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </label>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="#/">Home</a></li>
+                <li><a href="#/" id="projects">Projects</a></li>
+                <li><a href="#/" id="about">About</a></li>
+                <li><a href="#/" id="contacts">Contacts</a></li>
+                <li><a href="#/" id="skills">Skills</a></li>
+
+            </ul>
+        </nav>
+    </div> -->
+
     <header>
         <div class="container">
             <div class="header-left">
-                <a href="">Home</a>
-                <a href="#/" id="projects">Projects</a>
-                <a href="#/" id="about">About</a>
+                <a href="">Главная</a>
+                <a href="#/" id="projects">Проекты</a>
+                <a href="#/" id="about">Обо Мне</a>
             </div>
             <div class="header-right">
-                <a href="#/" id="contacts">Contacts</a>
-                <a href="#/" id="skills">Skills</a>
+                <a href="#/" id="contacts">Контакты</a>
+                <a href="#/" id="skills">Навыки</a>
             </div>
 
         </div>
 
     </header>
+    <div class="home_modal" style="overflow: scroll;">
+        <h1 style="font-size: 70px; color: white;text-align: center;margin-top: 50px;"> Привет! Меня зовут Михаил, и я
+            начинающий верстальщик. Учусь создавать современные и адаптивные сайты, работаю с HTML, CSS и JavaScript.
+        </h1>
+        <a href="#/" class="see" id="see">Посмотреть!</a>
+    </div>
     <div class="modal" id="modal">
         <!--  -->
         <div class="projects">
             <h3 style="color: white;text-align: center;font-size: 40px;margin-top: 100px;">My Projects!</h3>
-            <p style="text-align: center;color: white;font-size: 30px;margin-top: 30px;margin-bottom: 30px;">Click On
-                The Card To See My Projects!</p>
+            <p style="text-align: center;color: white;font-size: 30px;margin-top: 30px;margin-bottom: 30px;">Нажмите и
+                посмотрите мои проекты!
+            </p>
             <div class="cards">
                 <a href="https://github.com/MishaZorin/travel">
                     <div class="card">
                         <p>Travel Blog(Only Computer)</p>
                     </div>
                 </a>
-                <a href=""></a>
-                <div class="card">
-                    <p>Cars(Only Computer)</p>
-                </div>
+                <a href="">
+                    <div class="card">
+                        <p>Cars(Only Computer)</p>
+                    </div>
+
                 </a>
-                <a href=""></a>
-                <div class="card">
-                    <p>Quiz</p>
-                </div>
+
+
+                <a href="">
+                    <div class="card">
+                        <p>Quiz(coputer and mobile)</p>
+                    </div>
+
                 </a>
-                <a href=""></a>
-                <div class="card">
-                    <p>Clothes Shop(Only Computer)</p>
-                </div>
+
+
+                <a href="">
+                    <div class="card">
+                        <p>Clothes Shop(Only Computer)</p>
+                    </div>
+
+                </a>
+
+
+                <a href="">
+                    <div class="card">
+                        <p>Another My Site</p>
+                    </div>
                 </a>
 
             </div>
 
         </div>
     </div>
-    <div class="modal_about" id="modal_about">
-        
-        <div class="about">
-            <h3 style="color: rgb(0, 0, 0);text-align: center;font-size: 40px;margin-top: 50px;margin-bottom: 50px;">
-                About Me</h3>
-            <p style="margin: auto;color: rgb(12, 12, 12);font-size: 40px;">Lorem ipsum dolor sit amet, consectetur
-                adipisicing elit. Ullam ratione amet maiores obcaecati facere repellendus beatae nam. Fuga pariatur
-                reiciendis praesentium eius maiores? Dolores, ipsam dolorem. Consequatur vel corporis pariatur?</p>
+    <div class="modal" id="modal_about">
+        <div class="display">
+            <div class="goals">
+                <h3
+                    style="color: rgb(0, 0, 0);text-align: center;font-size: 40px;margin-top: 50px;margin-bottom: 50px;">
+                    Мои цели</h3>
+                <p style="margin: auto;color: rgb(12, 12, 12);font-size: 40px;">🚀 Научиться работать с API и backend-технологиями
+                    <br>🚀 Создать несколько крутых проектов для портфолио
+                    <br>🚀 Развиваться в направлении full-stack разработки
+                </p>
+            </div>
+            <div class="about">
+                <h3
+                    style="color: rgb(0, 0, 0);text-align: center;font-size: 40px;margin-top: 50px;margin-bottom: 50px;">
+                    Навыки</h3>
+                <p style="margin: auto;color: rgb(12, 12, 12);font-size: 40px;">Что я уже умею:
+                    <br>✔ Верстать адаптивные сайты, которые отлично смотрятся на любом устройстве
+                    <br>✔ Работать с Flexbox и Grid, добавлять плавные анимации на CSS
+                    <br>✔ Писать простые скрипты на JavaScript (слайдеры, попапы, формы)
+                    <br>✔ Использовать Git и GitHub для контроля версий
+                    <br>✔ Верстать по макетам из Figma и Photoshop
+                </p>
+            </div>
         </div>
+
     </div>
-    <div class="modal_contacts" id="modal_contacts">
-        <p>+7777777</p>
+    <div class="modal" id="modal_contacts">
+        <div class="container">
+            <div class="forma">
+                <h3>Найдите меня здесь!</h3>
+                <div class="numbers">
+                    <p>Telegram: <a href="">@MishaZorin</a></p>
+                    <p>E-Mail: zorin.mikhail.e@gmail.com</p>
+                    <p style="margin-right: 120px;">GitHub: <a href="">https://github.com/?ysclid=mct71r42e6244996308</a></p>
+                    <p>Avito:</p>
+                    <p>My phone Number: +79119833642</p>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="modal" id="modal_skills">
+        <div class="know">
+
+            <p class="html" style="margin-top: 50px;">HTML5</p>
+            <p class="css" style="margin-top: 50px;">CSS3</p>
+            <p class="figma" style="margin-top: 50px;">Git</p>
+            <p class="js" style="margin-top: 50px;">JavaScript(Base Level)</p>
+
+
+
+        </div>
+
+
+
+
+
     </div>
     <div class="container">
-        <h1 style="font-size: 70px; color: white;text-align: left;margin-top: 50px;">Hi, My Name Is Mikhail Zorin!</h1>
 
-        <div class="display">
-            <!-- <div class="element-animation">
-                <p style="color: rgb(255, 255, 255);font-size: 25px;"></p>
-            </div> -->
-            <h2 style="font-size: 70px;color: white;text-align: right;margin-top: 100px;">I'm a starter of <br> web
-                develop,<br> but I'm ready <br> to work now!</h2>
 
-        </div>
 
-        <h1 style="font-size: 70px; color: white;text-align: left;margin-top: 50px;">Let's see my projects!</h1>
-        <!-- <a href="id="projects"" class="watch" >Посмотреть!</a> -->
 
 
 

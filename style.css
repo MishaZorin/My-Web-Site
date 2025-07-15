@@ -8,20 +8,81 @@
     max-width: 1700px;
     margin: auto;
 }
-label{
-    width: 40px;
-    background-color: rgb(119, 117, 29);
-    height: 40px;
-    display: block;
-    /* нужно,для того,чтобы абсолютные дети выравнивлись по родителю, а не по экрану */
-    position: relative;
-}
-label span{
-    position: absolute;
-    width: 60%;
-    background-color: rgb(255, 255, 255);
-    height: 2px;
 
+.hamburger-checkbox {
+    display: none;
+}
+.burger{
+    display: none;
+}
+.hamburger {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+}
+.hamburger-line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #333;
+    transition: all 0.3s ease;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    background: #f8f8f8;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    padding: 80px 20px 20px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+}
+.nav-list {
+    list-style: none;
+}
+
+.nav-list li {
+    margin-bottom: 15px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+.nav-list a:hover {
+    color: #0077cc;
+}
+.hamburger-checkbox:checked ~ .nav {
+    transform: translateX(0);
+}
+
+
+.hamburger-checkbox:checked + .hamburger .hamburger-line:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+.hamburger-checkbox:checked + .hamburger .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-checkbox:checked + .hamburger .hamburger-line:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
 }
 body {
     background-color: #0c0b1e;
@@ -33,8 +94,24 @@ header .container {
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
-    
 
+
+}
+
+.home_modal {
+    animation: forma 2s ease-in-out;
+}
+
+@keyframes home_modal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 header a {
@@ -92,37 +169,95 @@ header a:hover {
     width: 100%;
     height: calc(100% - 60px);
     top: 60px;
+    overflow: scroll;
     left: 0;
     display: none;
     z-index: 10;
+
 }
+
+/* убрать scrollbar */
 /* Добавить один общий  класс для modals */
 /* гамбургер для мобильной версии */
 /* кнопка помотреть исправить */
-.modal_about {
-    position: fixed;
-    background-color: #0c0b1e;
-    width: 100%;
-    height: 90%;
-    top: 60px;
-    left: 0;
-    display: none;
+
+
+
+@keyframes move {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(200px);
+    }
 }
+
 /* если селектор не работает, то дописать в начале строки его родителя */
-body .modal_show{
+body .modal_show {
     display: block;
 
 }
 
-.modal_contacts{
-    position: fixed;
-    background-color: #0c0b1e;
-    width: 100%;
-    height: 90%;
-    top: 60px;
-    left: 0;
-    display: none;
+
+.forma {
+    background-color: white;
+    padding: 20px;
+    max-width: 450px;
+    /* width: 50%; */
+    box-sizing: border-box;
+    overflow: hidden;
+    display: block;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 10px;
+    animation: forma 2s ease-in-out;
+
+
 }
+
+@keyframes forma {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.numbers {
+    margin: auto;
+    display: inline-block;
+    font-size: 25px;
+}
+
+.forma p {
+    text-align: center;
+    display: inline-block;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid grey;
+}
+
+h3 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.forma:hover {
+    transform: scale(1.05);
+    transition: .6s;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(0, 255, 76, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(239, 11, 11, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(164, 239, 3, 0.2);
+    cursor: pointer;
+}
+
 .header-right button {
     padding: 10px;
     background-color: rgb(251, 5, 5);
@@ -133,12 +268,12 @@ body .modal_show{
 
 }
 
-.diplay {
+.display {
     display: flex;
 }
 
 .card {
-    padding: 60px;
+    padding: 40px;
     margin: 20px 20px;
     background-color: white;
     border-radius: 10px;
@@ -158,30 +293,51 @@ body .modal_show{
 .cards {
     display: flex;
     justify-content: center;
+    animation: css 2s ease-in-out;
+}
+
+@keyframes cards {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .cards a {
     color: black;
 }
-.watch{
-    padding: 30px;
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-    text-decoration: none;
-    border-radius: 30px;
-    position: relative;
-    top: 200px;
-    left: 1400px;
-}
-.watch:hover{
-    background-color: black;
+
+.see {
     color: white;
-    border: 2px solid white;
-    transition: background 0.3s ease;
+    border-radius: 30px;
+    /* display: inline-block; */
+    /* margin-right: auto; */
+    margin-right: 50px;
+    float: right;
+    margin-top: 50px;
+    margin-bottom: 100px;
 }
+
+.see:hover {
+    background-color: rgb(255, 255, 255);
+    color: gray;
+    transition: .9s;
+    padding: 20px;
+
+}
+
+.container .display {
+    display: flex;
+    justify-content: space-between;
+}
+
 .about {
-    max-width: 500px;
+    max-width: 450px;
     padding: 10px;
     color: black;
     overflow: hidden;
@@ -189,38 +345,77 @@ body .modal_show{
     border-radius: 20px;
     display: block;
     margin: auto;
-    margin-top: 200px;
+    margin-top: 100px;
     -webkit-box-shadow: 4px 4px 8px 0px rgba(255, 255, 255, 0.2);
     -moz-box-shadow: 4px 4px 8px 0px rgba(255, 255, 255, 0.2);
     box-shadow: 4px 4px 8px 0px rgba(255, 255, 255, 0.2);
     cursor: pointer;
     transition: transform 0.3s ease;
+    animation: css 2s ease-in-out;
 }
 
+.goals {
+    max-width: 450px;
+    padding: 10px;
+    color: black;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 20px;
+    display: block;
+    margin: auto;
+    margin-top: 100px;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(255, 255, 255, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(255, 255, 255, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    animation: css 2s ease-in-out;
+}
+
+@keyframes about {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes goals {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.goals:hover{
+    transform: scale(1.05);
+}
 .about:hover {
     transform: scale(1.05);
 }
 
 @media (max-width: 600px) {
 
-    .header-left {
-        flex-direction: column;
-        /* Ссылки в столбик */
-        gap: 10px;
 
-        /* Уменьшаем отступ */
-    }
-    header .container{
-        flex-direction:column ;
+    .burger {
+        display: block;
     }
 
-    .header-right {
-        flex-direction: column;
-        /* Ссылки в столбик */
-        gap: 10px;
-        /* Уменьшаем отступ */
+
+    header {
+        display: none;
     }
-    
+
+
+
     .cards {
         flex-direction: column;
         align-items: center;
@@ -228,47 +423,202 @@ body .modal_show{
 
     h1 {
         text-align: center;
+        margin-top: 200px;
     }
 
     h2 {
         text-align: center;
     }
+
+    .know {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #modal_about .display {
+        flex-direction: column;
+    }
 }
 
-/* .slide {
-    margin: 0 15px;
-    
-}
-.slider-container {
-    position: relative;
-    margin: 0 auto;
-    overflow: hidden;
-}
-.slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-.slider-buttons button {
+.html {
+    padding: 10px;
     display: inline-block;
-    line-height: 40px;
-    width: 120px;
-    padding: 0 20px;
-    background-color: white;
-    border-radius: 40px;
-    margin-bottom: 50px;
-    height: 50px;
-    border: none;
-    text-decoration: none;
-    color: #222;
-    box-shadow: 0 0 20px #000000bb;
-    transition: .3s;
-    margin: 0 10px;
+    background-color: orangered;
+    border-radius: 10px;
+    color: rgb(249, 247, 247);
+    animation: html 2s ease-in-out;
+    margin-right: 50px;
 
 
 
 }
 
-.slider-buttons {
+.know {
     display: flex;
     justify-content: center;
-} */
+    align-items: center;
+    flex-direction: column;
+}
+
+@keyframes html {
+    0% {
+        transform: scale(1);
+        /* Исходный размер */
+        opacity: 1;
+        /* Полная видимость */
+    }
+
+    50% {
+        transform: scale(1.1);
+        /* Увеличение на 10% */
+        opacity: 0.7;
+        /* Легкое затемнение */
+    }
+
+    100% {
+        transform: scale(1);
+        /* Возврат к исходному размеру */
+        opacity: 1;
+        /* Полная видимость */
+    }
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes css {
+    0% {
+        transform: scale(1);
+        /* Исходный размер */
+        opacity: 1;
+        /* Полная видимость */
+    }
+
+    50% {
+        transform: scale(1.1);
+        /* Увеличение на 10% */
+        opacity: 0.7;
+        /* Легкое затемнение */
+    }
+
+    100% {
+        transform: scale(1);
+        /* Возврат к исходному размеру */
+        opacity: 1;
+        /* Полная видимость */
+    }
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes figma {
+    0% {
+        transform: scale(1);
+        /* Исходный размер */
+        opacity: 1;
+        /* Полная видимость */
+    }
+
+    50% {
+        transform: scale(1.1);
+        /* Увеличение на 10% */
+        opacity: 0.7;
+        /* Легкое затемнение */
+    }
+
+    100% {
+        transform: scale(1);
+        /* Возврат к исходному размеру */
+        opacity: 1;
+        /* Полная видимость */
+    }
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes js {
+    0% {
+        transform: scale(1);
+        /* Исходный размер */
+        opacity: 1;
+        /* Полная видимость */
+    }
+
+    50% {
+        transform: scale(1.1);
+        /* Увеличение на 10% */
+        opacity: 0.7;
+        /* Легкое затемнение */
+    }
+
+    100% {
+        transform: scale(1);
+        /* Возврат к исходному размеру */
+        opacity: 1;
+        /* Полная видимость */
+    }
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.css {
+    padding: 10px;
+    display: inline-block;
+    background-color: rgb(17, 0, 255);
+    border-radius: 10px;
+    color: rgb(249, 247, 247);
+    animation: css 2s ease-in-out;
+}
+
+.figma {
+    padding: 10px;
+    display: inline-block;
+    background-color: rgb(255, 0, 162);
+    border-radius: 10px;
+    color: rgb(253, 252, 252);
+    margin-right: 50px;
+    animation: figma 2s ease-in-out;
+
+}
+
+.js {
+    padding: 10px;
+    display: inline-block;
+    background-color: rgb(255, 238, 0);
+    border-radius: 10px;
+    color: rgb(249, 249, 248);
+    animation: js 2s ease-in-out;
+}
