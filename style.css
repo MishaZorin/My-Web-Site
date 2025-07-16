@@ -103,6 +103,7 @@ header .container {
 
 .home_modal {
     animation: forma 2s ease-in-out;
+    overflow: scroll;
 }
 
 @keyframes home_modal {

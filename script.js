@@ -8,10 +8,9 @@ let modal_skills = document.getElementById('modal_skills')
 let modal_contacts = document.getElementById('modal_contacts')
 let see = document.getElementById("see")
 
-
-
 projects.onclick = function () {
     modal.style.display = 'block'
+    // home_modal.style.display = 'none'
     modal_about.style.display = 'none'
     modal_contacts.style.display = 'none'
     modal_skills.style.display = 'none'
@@ -23,6 +22,8 @@ see.onclick = function () {
     // show_modal(modal)
 }
 about.onclick = function(){
+    // home_modal.style.display = 'none'
+
     modal_about.style.display = 'block'
     modal.style.display = 'none'
     modal_contacts.style.display = 'none'
@@ -31,6 +32,7 @@ about.onclick = function(){
     
 }
 contacts.onclick = function(){
+    // home_modal.style.display = 'none'
     modal_contacts.style.display = 'block'
     modal.style.display = 'none'
     modal_about.style.display = 'none'
@@ -39,6 +41,7 @@ contacts.onclick = function(){
     
 }
 skills.onclick = function(){
+    // home_modal.style.display = 'none'
     modal_skills.style.display = 'block'
     modal_contacts.style.display = 'none'
     modal.style.display = 'none'
